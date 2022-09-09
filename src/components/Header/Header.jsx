@@ -28,7 +28,6 @@ export default class Header extends Component {
           </Button>
           <FaShoppingCart color="white" fontSize="25px" />
         </Container>
-
       </Navbar>
     );
   }
