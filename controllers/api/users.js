@@ -11,14 +11,17 @@ module.exports = {
 
 async function signup(req, res) {
   try {
+    console.log("1")
     // NEVER store plaintext password
     const hashedPassword = await bcrypt.hash(req.body.password, SALT_ROUNDS)
+    console.log("2")
     console.log(hashedPassword) 
     const user = await User.create({
       name: req.body.name,
       email: req.body.email,
       password: hashedPassword,
     });
+    console.log("3")
     console.log(user)
 
     // creating a jwt:
@@ -32,21 +35,17 @@ async function signup(req, res) {
 }
 
 async function login(req, res) {
-    // try {
-      console.log('1')
+    try {
       const user = await User.findOne({ email: req.body.email });
-      console.log('2')
       // check password. if it's bad throw an error.
       console.log("user pw", user.password)
       console.log("req.body.password", req.body.password)
       if ((await bcrypt.compare(user.password, req.body.password))) throw new Error();
-      console.log('3')
   
       // if we got to this line, password is ok. give user a new token.
       const token = jwt.sign({ user }, process.env.SECRET,{ expiresIn: '24h' });
-      console.log('4')
       res.status(200).json(token)
-    // } catch {
-    //   res.status(400).json('Bad Credentials');
-    // }
+    } catch {
+      res.status(400).json('Bad Credentials');
+    }
   }

@@ -1,6 +1,6 @@
 import { Component } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
+import Header from "./components/Header/Header";
 import AuthPage from "./pages/AuthPage/AuthPage";
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">{this.state.user ? <Navbar setUserInState={this.setUserInState} user={this.state.user} /> : <AuthPage setUserInState={this.setUserInState} />}</div>
+      <div className="App">{this.state.user ? <Header setUserInState={this.setUserInState} user={this.state.user} /> : <AuthPage setUserInState={this.setUserInState} />}</div>
     );
   }
 }
