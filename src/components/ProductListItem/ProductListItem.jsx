@@ -1,11 +1,10 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { BiNoEntry } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 export default function ProductListItem(props) {
   return (
-    <Card className="border-0" style={{ width: "20rem"  }}>
+    <Card className="d-flex justify-content-center border-0" style={{ width: "20rem"  }}>
       <Card.Img
         variant="top"
         src={props.image}

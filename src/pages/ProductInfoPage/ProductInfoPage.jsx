@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
-import { Container } from "react-bootstrap";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 
 export default function ProductInfoPage() {
   const [products, setProduct] = useState({ product: {} });
@@ -32,30 +32,54 @@ export default function ProductInfoPage() {
       <Header />
       <Container>
         <Link to="/">
-          <BiArrowBack color="black" fontSize="40px" />
+          <BiArrowBack color="black" fontSize="40px" className="mr-5" />
         </Link>
-        <img
-          src={product.image}
-          style={{ width: 484, height: 605, objectFit: "contain" }}
-        />
-        <Form.Group className="mb-3">
-          <Form.Label>{product.name}</Form.Label>
-          <Form.Label>${product.price}</Form.Label>
-          <Form.Label>size</Form.Label>
-          <Form.Select>
-            {sizes?.map((s) => (
-              <option>{s}</option>
-            ))}
-          </Form.Select>
-          <Form.Label>color</Form.Label>
-          <Form.Select>
-            {colors?.map((c) => (
-              <option>{c}</option>
-            ))}
-          </Form.Select>
-        </Form.Group>
+        <Row>
+          <Col>
+            <img
+              src={product.image}
+              style={{ width: 500, height: 305, objectFit: "contain" }}
+            />
+          </Col>
+          <Col>
+            <Card>
+              <Container>
+              <Card.Title className="mt-4 d-flex justify-content-center" style={{fontSize: "30px"}}>{product.name}</Card.Title>
+              <Card.Body>
+                <Card.Text>${product.price}</Card.Text>
+                <Form.Group>
+                  <Row>
+                    <Col>
+                      <Card.Text>Sizes</Card.Text>
+                    </Col>
+                    <Col>
+                      <Form.Select>
+                        {sizes?.map((s) => (
+                          <option>{s}</option>
+                        ))}
+                      </Form.Select>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                  <Card.Text>color</Card.Text>
+                  </Col>
+                  <Col>
+                  <Form.Select>
+                    {colors?.map((c) => (
+                      <option>{c}</option>
+                    ))}
+                  </Form.Select>
+                  </Col>
+                  </Row>
+                  <Button className="mt-4 mb-4 bg-danger border-0">Add to Cart</Button>
+                </Form.Group>
+              </Card.Body>
+              </Container>
+            </Card>
+          </Col>
+        </Row>
         {/* {product.favorite ? <AiOutlineHeart onClick={handleFavorite}/> : <AiFillHeart onClick={handleFavorite}/>} */}
-        <button>Add to cart</button>
       </Container>
     </div>
   );

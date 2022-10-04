@@ -9,7 +9,6 @@ import {
   Nav,
   Button,
 } from "react-bootstrap";
-import { FaShoppingCart } from "react-icons/fa";
 import "./Header.css";
 
 export default class Header extends Component {
