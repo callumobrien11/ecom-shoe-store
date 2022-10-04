@@ -14,6 +14,7 @@ class App extends Component {
     brands: [],
     activeBrand: "",
     products: [],
+    favorites: []
   };
 
   setUserInState = (incomeingUserData) => {
@@ -58,6 +59,7 @@ class App extends Component {
                   user={this.state.user}
                   brands={this.state.brands}
                   products={this.state.products}
+
                 />
               }
             />
@@ -68,6 +70,7 @@ class App extends Component {
                   setUserInState={this.setUserInState}
                   brands={this.state.brands} 
                   products={this.state.products} 
+                  favorites={this.state.favorites}
                 />
               } 
             />

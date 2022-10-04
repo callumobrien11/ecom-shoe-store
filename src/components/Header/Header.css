@@ -2,10 +2,6 @@
     padding: 0;
     margin: 0;
   }
-
-  .navbar {
-    background-color: darkgrey;
-  }
   
   nav ul {
     display: flex; /* 5 */
@@ -19,6 +15,10 @@
   nav button {
     text-decoration: none;
     color: #0d47a1
+  }
+
+  .panel {
+    transition: 2s;
   }
 
   /* 
