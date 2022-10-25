@@ -2,8 +2,7 @@ import { Component } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import AuthPage from "./pages/AuthPage/AuthPage";
-import Cart from "./components/Cart/Cart";
-import CommunityPage from "./pages/CommunityPage/CommunityPage";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import OrderHistoryPage from "./pages/OrderHistoryPage/OrderHistoryPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import ProductInfoPage from "./pages/ProductInfoPage/ProductInfoPage";
@@ -19,6 +18,7 @@ class App extends Component {
 
   setUserInState = (incomeingUserData) => {
     this.setState({ user: incomeingUserData });
+    window.location.reload()
   };
 
   async componentDidMount() {
@@ -30,7 +30,6 @@ class App extends Component {
         token = null;
       } else {
         this.setState({ user: payload.user });
-
         try {
           const fetchProductsResponse = await fetch("/api/products");
           const fetchBrandsResponse = await fetch("/api/brands");
@@ -39,6 +38,8 @@ class App extends Component {
           let brands = brandsObject.map((b) => b.name);
           this.setState({ brands: brands, products: products });
           console.log("products", this.state.products);
+          console.log("products", this.state.brands);
+          console.log("hello")
         } catch (err) {
           console.error("ERROR: ", err);
         }
@@ -75,18 +76,14 @@ class App extends Component {
               } 
             />
             <Route
-              path="/cart"
-              element={<Cart setUserInState={this.setUserInState} />}
+              path="/ShoppingCart"
+              element={<ShoppingCart setUserInState={this.setUserInState} />}
             />
             <Route
               path="/orderHistory"
               element={
                 <OrderHistoryPage setUserInState={this.setUserInState} />
               }
-            />
-            <Route
-              path="/communityPage"
-              element={<CommunityPage setUserInState={this.setUserInState} />}
             />
           </Routes>
         ) : (

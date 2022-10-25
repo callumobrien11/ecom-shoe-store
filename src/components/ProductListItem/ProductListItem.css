@@ -1,7 +1,8 @@
 .shoe-card:hover {
-    background-color: whitesmoke;
+    background-color: rgb(244, 244, 244);
 }
 
 .shoe-card {
     margin-top: 0;
 }
+

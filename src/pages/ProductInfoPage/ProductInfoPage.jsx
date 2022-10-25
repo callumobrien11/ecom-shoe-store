@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 
-export default function ProductInfoPage() {
+export default function ProductInfoPage(props) {
   const [products, setProduct] = useState({ product: {} });
   const product = products.product;
   const sizes = product.size;
@@ -31,7 +31,7 @@ export default function ProductInfoPage() {
 
   return (
     <div>
-      <Header />
+      <Header setUserInState={props.setUserInState} />
       <Container>
         <Link to="/">
           <BiArrowBack color="black" fontSize="40px" className="mr-5" />

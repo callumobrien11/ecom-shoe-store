@@ -15,8 +15,8 @@ export default function ProductListItem(props) {
         style={{ objectFit: "contain" }}
       />
       <Card.Body>
-        <Card.Title style={{color:"black", textDecoration:"none"}}>{props.name}</Card.Title>
-        <Card.Text style={{color:"black", textDecoration:"none"}}>{formatCurrency(props.price)}</Card.Text>
+        <Card.Title className="shoe-card-text" style={{color:"black"}}>{props.name}</Card.Title>
+        <Card.Text className="shoe-card-text" style={{color:"black"}}>{formatCurrency(props.price)}</Card.Text>
         <Card.Text className="d-flex justify-content-center mb-4" >
           <Link to={props.id}>
             <Button variant="outline-danger" className="rounded">more</Button>
