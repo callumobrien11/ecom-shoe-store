@@ -1,5 +1,5 @@
 import { Component } from "react";
-//import ProductList from "../ProductList/ProductList";
+import Cart from "../Cart/Cart"
 import { Link, NavLink } from "react-router-dom";
 import {
   Navbar,
@@ -12,6 +12,8 @@ import {
 import "./Header.css";
 
 export default class Header extends Component {
+
+
   handleLogout = () => {
     localStorage.removeItem("token");
     this.props.setUserInState(null);
@@ -41,7 +43,9 @@ export default class Header extends Component {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
+          <Nav>
           <Button
+            onClick={this.handleClick}
             style={{
               width: "3rem",
               height: "3rem",
@@ -50,8 +54,6 @@ export default class Header extends Component {
             variant="outline-danger"
             className="rounded-circle"
           >
-            {/* <FaShoppingCart color="white" fontSize="25px" /> */}
-
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -83,6 +85,7 @@ export default class Header extends Component {
               3
             </div>
           </Button>
+          </Nav>
         </Container>
       </Navbar>
     );

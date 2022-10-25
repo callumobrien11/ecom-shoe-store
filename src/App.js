@@ -2,7 +2,7 @@ import { Component } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import AuthPage from "./pages/AuthPage/AuthPage";
-import CartPage from "./pages/CartPage/CartPage";
+import Cart from "./components/Cart/Cart";
 import CommunityPage from "./pages/CommunityPage/CommunityPage";
 import OrderHistoryPage from "./pages/OrderHistoryPage/OrderHistoryPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
@@ -76,7 +76,7 @@ class App extends Component {
             />
             <Route
               path="/cart"
-              element={<CartPage setUserInState={this.setUserInState} />}
+              element={<Cart setUserInState={this.setUserInState} />}
             />
             <Route
               path="/orderHistory"

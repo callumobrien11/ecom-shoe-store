@@ -15,7 +15,7 @@ const ProductModel = require("./models/product");
     { name: "Nike" },
     { name: "New Balance" },
     { name: "Adidas" },
-    { name: "Dr. Marten" },
+    { name: "Converse" },
     { name: "Timberland" },
     { name: "Crocs" },
     { name: "ASICS" },
@@ -25,7 +25,7 @@ const ProductModel = require("./models/product");
   const products = await ProductModel.create([
     {
       image:
-        "https://cdn.runrepeat.com/i/nike/28278/nike-air-max-270-black-6266-600.jpg",
+        "https://images.footlocker.com/is/image/EBFL2/6372431_a1?wid=520&hei=520&fmt=png-alpha",
       name: "Nike Air Max 270",
       brand: brands[0],
       price: 195,
@@ -35,7 +35,7 @@ const ProductModel = require("./models/product");
     },
     {
       image:
-        "https://cdn.runrepeat.com/i/nike/30973/nike-air-max-97-essential-sizemap-46-herren-cool-grey-e31a-600.jpg",
+        "https://images.footlocker.com/is/image/EBFL2/21978138_a1?wid=2000&hei=2000&fmt=png-alpha",
       name: "Nike Air Max 97",
       brand: brands[0],
       price: 205,
@@ -45,8 +45,8 @@ const ProductModel = require("./models/product");
     },
     {
       image:
-        "https://cdn.runrepeat.com/i/nike/24857/nike-men-s-tanjun-running-shoe-midnight-navy-white-game-royal-9-d-m-us-mens-midnight-navy-white-game-royal-7d5f-600.jpg",
-      name: "Nike Tanjun",
+        "https://images.footlocker.com/is/image/EBFL2/4100890_a1?wid=520&hei=520&fmt=png-alpha",
+      name: "Nike Blazer Mid '77 Vintage",
       brand: brands[0],
       price: 149,
       favorite: false,
@@ -56,8 +56,8 @@ const ProductModel = require("./models/product");
     },
     {
       image:
-        "https://cdn.runrepeat.com/i/new-balance/36800/new-balance-fresh-foam-1080-v11-black-8a7e-600.jpg",
-      name: "New Balance Fresh Foam",
+        "https://images.footlocker.com/is/image/EBFL2/42200201_a1?wid=520&hei=520&fmt=png-alpha",
+      name: "New Balance 2002R",
       brand: brands[1],
       price: 189,
       favorite: false,
@@ -66,18 +66,18 @@ const ProductModel = require("./models/product");
     },
     {
       image:
-        "https://cdn.runrepeat.com/i/new-balance/36987/new-balance-fuelcell-rebel-v2-blue-57b1-600.jpg",
-      name: "New Balance FuelCell Rebel v2",
+        "https://images.footlocker.com/is/image/EBFL2/32741503_a1?wid=520&hei=520&fmt=png-alpha",
+      name: "New Balance 327",
       brand: brands[1],
       price: 139,
       favorite: false,
       size: ["5","6","7","8","9","10","11","12"],
-      color:["Blue/White"]
+      color:["Black/White"]
     },
     {
       image:
-        "https://cdn.runrepeat.com/i/new-balance/36258/new-balance-fuelcell-prism-energystreak-white-neo-flame-men-s-shoes-adult-white-c90e-600.jpg",
-      name: "New Balance FuelCell Prism",
+        "https://images.footlocker.com/is/image/EBFL2/52530101_a1?wid=519&hei=519&fmt=png-alpha",
+      name: "New Balance 530",
       brand: brands[1],
       price: 99,
       favorite: false,
@@ -86,7 +86,7 @@ const ProductModel = require("./models/product");
     },
     {
       image:
-        "https://cdn.runrepeat.com/i/adidas/32545/adidas-ozweego-clear-brown-white-adult-male-white-fd91-600.jpg",
+        "https://images.footlocker.com/is/image/EBFL2/42116812_a1?wid=520&hei=520&fmt=png-alpha",
 
       name: "Adidas Ozweego",
       brand: brands[2],
@@ -97,9 +97,9 @@ const ProductModel = require("./models/product");
     },
     {
       image:
-        "https://cdn.runrepeat.com/i/adidas/37549/adidas-running-lite-racer-adapt-3-0-scarlet-core-black-footwear-white-men-scarlet-core-black-footwear-white-cb0f-600.jpg",
+        "https://images.footlocker.com/is/image/EBFL2/41160110_a1?wid=520&hei=520&fmt=png-alpha",
 
-      name: "Adidas Lite Racer Adapt 3.0",
+      name: "adidas Superstar Winter",
       brand: brands[2],
       price: 69,
       favorite: false,
@@ -108,22 +108,22 @@ const ProductModel = require("./models/product");
     },
     {
       image:
-        "https://img.ssensemedia.com/images/b_white,g_center,f_auto,q_auto:best/212399M225002_1/dr-martens-black-smooth-1461-oxfords.jpg",
+        "https://images.footlocker.com/is/image/EBFL2/5345038_fr?wid=520&hei=520&fmt=png-alpha",
 
-      name: "Dr. Martens Black Smooth 1461 Oxfords",
+      name: "Converse Chaussure à tige basse All Star",
       brand: brands[3],
-      price: 150,
+      price: 80,
       favorite: false,
       size: ["5","6","7","8","9"],
       color:["Black"]
     },
     {
       image:
-        "https://img.ssensemedia.com/images/b_white,g_center,f_auto,q_auto:best/221399M225018_1/dr-martens-black-smooth-1460-boots.jpg",
+        "https://images.footlocker.com/is/image/EBFL2/6265000_a1?wid=520&hei=520&fmt=png-alpha",
 
-      name: "Dr. Martens Black Smooth 1460 Boots",
+      name: "Converse Chuck Taylor High",
       brand: brands[3],
-      price: 200,
+      price: 129,
       favorite: false,
       size: ["9","10","11","12"],
       color:["black"]
@@ -141,29 +141,29 @@ const ProductModel = require("./models/product");
     },
     {
       image:
-        "https://img.ssensemedia.com/images/b_white,g_center,f_auto,q_auto:best/221209F121026_1/crocs-black-classic-clogs.jpg",
+        "https://images.footlocker.com/is/image/EBFL2/99040097_a1?wid=520&hei=520&fmt=png-alpha",
 
-      name: "Black Classic Crocs",
+      name: "Crocs Classic Clog",
       brand: brands[5],
       price: 49,
       favorite: false,
       size: ["5","6","7","8","9","10"],
-      color: ["Black"]
+      color: ["Green/Yellow"]
     },
     {
       image:
-        "https://img.ssensemedia.com/images/b_white,g_center,f_auto,q_auto:best/221342F122002_1/balenciaga-green-crocs-edition-madame-heels.jpg",
+        "https://images.footlocker.com/is/image/EBFL2/65857769_a1?wid=520&hei=520&fmt=png-alpha",
 
-      name: "BALENCIAGA Green Crocs Edition Madame Heels",
+      name: "Crocs Echo Clogs",
       brand: brands[5],
-      price: 475,
+      price: 59,
       favorite: false,
       size: ["5","6","7"],
-      color:["Green"]
+      color:["Dessert Grass/Brown"]
     },
     {
       image:
-        "https://cdn.runrepeat.com/i/asics/27735/asics-men-s-gt-ii-shoes-10-white-monaco-blue-white-monaco-blue-0ea5-600.jpg",
+        "https://images.footlocker.com/is/image/EBFL2/93512566_a1?wid=520&hei=520&fmt=png-alpha",
 
       name: "ACICS GT II",
       brand: brands[6],
@@ -174,9 +174,9 @@ const ProductModel = require("./models/product");
     },
     {
       image:
-        "https://cdn.runrepeat.com/i/asics/36314/asics-gt-2000-9-black-directoire-blue-7-5-4e-extra-wide-black-directoire-blue-11ff-600.jpg",
+        "https://images.footlocker.com/is/image/EBFL2/4206373_a1?wid=519&hei=519&fmt=png-alpha",
 
-      name: "ACICS GT 2000 9",
+      name: "ASICS® Gel Quantum 180",
       brand: brands[6],
       price: 119,
       favorite: false,

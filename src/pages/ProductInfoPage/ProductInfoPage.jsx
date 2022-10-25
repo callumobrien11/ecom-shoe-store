@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import formatCurrency from "../../utilities/formatCurrency";
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
@@ -12,6 +13,7 @@ export default function ProductInfoPage() {
   const sizes = product.size;
   const colors = product.color;
   const getId = useParams().id;
+  const quantity = 0
 
   useEffect(() => {
     (async function getProduct() {
@@ -46,7 +48,7 @@ export default function ProductInfoPage() {
               <Container>
               <Card.Title className="mt-4 d-flex justify-content-center" style={{fontSize: "30px"}}>{product.name}</Card.Title>
               <Card.Body>
-                <Card.Text>${product.price}</Card.Text>
+                <Card.Text>{formatCurrency(product.price)}</Card.Text>
                 <Form.Group>
                   <Row>
                     <Col>
