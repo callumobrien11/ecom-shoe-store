@@ -3,7 +3,7 @@ import ProductList from "../../components/ProductList/ProductList";
 import BrandList from "../../components/BrandsList/BrandsList";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 
 export default function ProductPage(props) {
   const [activeBrand, setActiveBrand] = useState(null);
@@ -19,17 +19,19 @@ export default function ProductPage(props) {
         products={props.products}
       />
       <Container>
+      <Row md={2} xs={1} lg={2}>
         <SearchBar
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           setActiveBrand={setActiveBrand}
         />
-
         <BrandList
           brandList={props.brands}
           activeBrand={activeBrand}
           setActiveBrand={setActiveBrand}
         />
+        </Row>
+       
         <ProductList
           activeBrand={activeBrand}
           productList={props.products}

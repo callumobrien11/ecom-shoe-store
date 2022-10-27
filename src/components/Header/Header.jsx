@@ -22,11 +22,11 @@ export default class Header extends Component {
   }
   render() {
     return (
-      <Navbar sticky="top" className="bg-dark shadow-sm mb-3">
+      <Navbar sticky="top" className="shadow-lg mb-3" style={{backgroundColor:"#f4f4f4"}}>
         <Container className="container">
           <Nav className="me-auto">
             <Nav.Link to="/" as={NavLink}>
-              Logo
+              Home
             </Nav.Link>
             <Nav.Link to="/orderHistory" as={NavLink}>
               Previos Orders
@@ -63,7 +63,7 @@ export default class Header extends Component {
             </Link>
             <Button
               onClick={this.handleLogout}
-              style={{ background: "none", border: "none" }}
+              style={{ background: "#c82333", border: "none", marginLeft: 30}}
             >
               Logout
             </Button>

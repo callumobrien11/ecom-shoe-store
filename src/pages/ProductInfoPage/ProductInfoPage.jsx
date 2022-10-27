@@ -36,16 +36,16 @@ export default function ProductInfoPage(props) {
         <Link to="/">
           <BiArrowBack color="black" fontSize="40px" className="mr-5" />
         </Link>
-        <Row>
-          <Col>
+        <Row md={1} xs={1} lg={2}>
+          <Col className="mt-4 d-flex justify-content-center">
             <img
               src={product.image}
-              style={{ width: 500, height: 305, objectFit: "contain" }}
+              style={{ width: 550, height: 400, objectFit: "contain", paddingBottom:40}}
             />
           </Col>
           <Col>
             <Card>
-              <Container>
+              {/* <Container> */}
               <Card.Title className="mt-4 d-flex justify-content-center" style={{fontSize: "30px"}}>{product.name}</Card.Title>
               <Card.Body>
                 <Card.Text>{formatCurrency(product.price)}</Card.Text>
@@ -77,7 +77,7 @@ export default function ProductInfoPage(props) {
                   <Button className="mt-4 mb-4 bg-danger border-0">Add to Cart</Button>
                 </Form.Group>
               </Card.Body>
-              </Container>
+              {/* </Container> */}
             </Card>
           </Col>
         </Row>
