@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // Ensure the Category model is processed by Mongoose (for populated queries)
 require('./Brand');
-const itemSchema = require('./Product');
+const Product = require('./Product');
 
-module.exports = mongoose.model('ProductSchema', ProductSchema);
+module.exports = mongoose.model('ProductSchema', Product);

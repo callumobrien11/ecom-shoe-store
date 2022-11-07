@@ -5,7 +5,7 @@ require("dotenv").config();
 require("./config/database");
 
 const BrandModel = require("./models/Brand");
-const ProductModel = require("./models/product");
+const ProductModel = require("./models/ProductSchema");
 // Cool trick: if you put a function in brackets like this:
 // (function brands(){})(),
 // it executes immediately without needing to be called. It's called an "immediately invoked" function (IIFE).

@@ -3,19 +3,19 @@ const Schema = mongoose.Schema
 const productSchema = require("./Product")
 
 const lineItemSchema = new Schema({
-    // Set qty to 1 when new item pushed in
-    qty: { type: Number, default: 1 },
-    product: productSchema
-  }, {
-    timestamps: true,
-    // Include the extPrice virtual property when doc is
-    // "sent over the wire" (serialized into JSON)
-    toJSON: { virtuals: true }
-  });
-  
+  // Set qty to 1 when new item pushed in
+  qty: { type: Number, default: 1 },
+  item: productSchema
+}, {
+  timestamps: true,
+  // Include the extPrice virtual property when doc is
+  // "sent over the wire" (serialized into JSON)
+  toJSON: { virtuals: true }
+});
+
   // Be sure NOT to use an arrow function for the callback
   lineItemSchema.virtual('extPrice').get(function () {
-    return this.qty * this.product.price;
+    return this.qty * this.item.price;
   });
 
 
@@ -29,11 +29,11 @@ const lineItemSchema = new Schema({
   });
 
   orderSchema.virtual('orderTotal').get(function () {
-    return this.lineItems.reduce((total, product) => total + product.extPrice, 0);
+    return this.lineItems.reduce((total, item) => total + item.extPrice, 0);
   });
 
   orderSchema.virtual('totalQty').get(function () {
-    return this.lineItems.reduce((total, product) => total + product.qty, 0);
+    return this.lineItems.reduce((total, item) => total + item.qty, 0);
   });
   
   orderSchema.virtual('orderId').get(function () {
@@ -57,7 +57,7 @@ orderSchema.statics.getCart = async function (userId) {
   orderSchema.methods.addItemToCart = async function (itemId) {
     // this is bound to the cart (doc)
     const cart = this;
-    const lineItem = cart.lineItems.find(lineItem => lineItem.product._id.equals(itemId));
+    const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
     if (lineItem) {
       lineItem.qty += 1;
     } else {

@@ -6,6 +6,7 @@ import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import OrderHistoryPage from "./pages/OrderHistoryPage/OrderHistoryPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import ProductInfoPage from "./pages/ProductInfoPage/ProductInfoPage";
+import * as ordersAPI from './utilities/orders-api';
 
 class App extends Component {
   state = {
@@ -13,13 +14,26 @@ class App extends Component {
     brands: [],
     activeBrand: "",
     products: [],
-    favorites: []
+    cart: null,
+    orders: [],
+    activeOrder: null
   };
+
 
   setUserInState = (incomeingUserData) => {
     this.setState({ user: incomeingUserData });
     window.location.reload()
   };
+
+ handleAddToOrder = (itemId) => {
+      const cart = ordersAPI.addItemToCart(itemId)
+      .then(data => this.setState({ cart: data}))
+  }
+
+  handleCheckout = () => {
+    ordersAPI.checkout();
+    this.setState({cart: null})
+  }
 
   async componentDidMount() {
     let token = localStorage.getItem("token");
@@ -37,9 +51,6 @@ class App extends Component {
           let brandsObject = await fetchBrandsResponse.json();
           let brands = brandsObject.map((b) => b.name);
           this.setState({ brands: brands, products: products });
-          console.log("products", this.state.products);
-          console.log("products", this.state.brands);
-          console.log("hello")
         } catch (err) {
           console.error("ERROR: ", err);
         }
@@ -60,7 +71,6 @@ class App extends Component {
                   user={this.state.user}
                   brands={this.state.brands}
                   products={this.state.products}
-
                 />
               }
             />
@@ -71,13 +81,18 @@ class App extends Component {
                   setUserInState={this.setUserInState}
                   brands={this.state.brands} 
                   products={this.state.products} 
-                  favorites={this.state.favorites}
+                  handleAddToOrder={this.handleAddToOrder}
                 />
               } 
             />
             <Route
               path="/ShoppingCart"
-              element={<ShoppingCart setUserInState={this.setUserInState} />}
+              element={<ShoppingCart 
+                setUserInState={this.setUserInState} 
+                orders={this.state.cart} 
+                handleCheckout={this.handleCheckout}
+                />
+              }
             />
             <Route
               path="/orderHistory"

@@ -1,4 +1,4 @@
-import { Col, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import ProductListItem from "../ProductListItem/ProductListItem";
 
 export default function ProductList(props) {

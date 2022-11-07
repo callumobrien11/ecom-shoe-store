@@ -1,5 +1,4 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const Schema = require('mongoose').Schema;
 
 const ProductSchema = new Schema ({
     image: {type: String, required: true },
@@ -13,4 +12,4 @@ const ProductSchema = new Schema ({
     timestamps: true,
 })
 
-module.exports = mongoose.model("Product", ProductSchema)
+module.exports = ProductSchema;

@@ -13,7 +13,6 @@ export default function ProductInfoPage(props) {
   const sizes = product.size;
   const colors = product.color;
   const getId = useParams().id;
-  const quantity = 0
 
   useEffect(() => {
     (async function getProduct() {
@@ -74,7 +73,7 @@ export default function ProductInfoPage(props) {
                   </Form.Select>
                   </Col>
                   </Row>
-                  <Button className="mt-4 mb-4 bg-danger border-0">Add to Cart</Button>
+                  <Button onClick={() => props.handleAddToOrder(getId)} className="mt-4 mb-4 bg-danger border-0">Add to Cart</Button>
                 </Form.Group>
               </Card.Body>
               {/* </Container> */}
