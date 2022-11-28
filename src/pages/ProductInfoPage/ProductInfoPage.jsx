@@ -10,9 +10,8 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 export default function ProductInfoPage(props) {
   const [products, setProduct] = useState({ product: {} });
   const product = products.product;
-  const sizes = product.size;
-  const colors = product.color;
   const getId = useParams().id;
+  console.log(products)
 
   useEffect(() => {
     (async function getProduct() {
@@ -49,31 +48,9 @@ export default function ProductInfoPage(props) {
               <Card.Body>
                 <Card.Text>{formatCurrency(product.price)}</Card.Text>
                 <Form.Group>
-                  <Row>
-                    <Col>
-                      <Card.Text>Sizes</Card.Text>
-                    </Col>
-                    <Col>
-                      <Form.Select>
-                        {sizes?.map((s) => (
-                          <option>{s}</option>
-                        ))}
-                      </Form.Select>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                  <Card.Text>color</Card.Text>
-                  </Col>
-                  <Col>
-                  <Form.Select>
-                    {colors?.map((c) => (
-                      <option>{c}</option>
-                    ))}
-                  </Form.Select>
-                  </Col>
-                  </Row>
+                  <Link to="/ShoppingCart">
                   <Button onClick={() => props.handleAddToOrder(getId)} className="mt-4 mb-4 bg-danger border-0">Add to Cart</Button>
+                  </Link>
                 </Form.Group>
               </Card.Body>
               {/* </Container> */}

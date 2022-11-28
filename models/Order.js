@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const productSchema = require("./Product")
+const ProductSchema = require("./Product")
 
 const lineItemSchema = new Schema({
   // Set qty to 1 when new item pushed in
   qty: { type: Number, default: 1 },
-  item: productSchema
+  item: ProductSchema
 }, {
   timestamps: true,
   // Include the extPrice virtual property when doc is
@@ -54,18 +54,24 @@ orderSchema.statics.getCart = async function (userId) {
     );
   };
 
-  orderSchema.methods.addItemToCart = async function (itemId) {
-    // this is bound to the cart (doc)
-    const cart = this;
-    const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
-    if (lineItem) {
-      lineItem.qty += 1;
-    } else {
-      const item = await mongoose.model('ProductSchema').findById(itemId);
-      cart.lineItems.push({ item });
-    }
-    return cart.save();
-  };
+
+// instance method for adding an item to a cart (unpaid order)
+orderSchema.methods.addItemToCart = async function (itemId) {
+  // this is bound to the cart (doc)
+  const cart = this;
+  // console.log("cart name", cart.lineItems[0].item)
+  console.log(cart.lineItems)
+  console.log("itemId", itemId)
+  const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
+  if (lineItem) {
+    lineItem.qty += 1;
+  } else {
+    const item = await mongoose.model('ProductSchema').findById(itemId);
+    cart.lineItems.push({ item });
+  }
+  return cart.save();
+};
+
 
   // instance method to set an item's qty in the cart (will add item if does not exist)
 orderSchema.methods.setItemQty = async function (itemId, newQty) {
@@ -77,7 +83,7 @@ orderSchema.methods.setItemQty = async function (itemId, newQty) {
     } else if (lineItem) {
       lineItem.qty = newQty;
     } else {
-      const item = await mongoose.model('Item').findById(itemId);
+      const item = await mongoose.model('Product').findById(itemId);
       cart.lineItems.push({ item });
     }
     return cart.save();

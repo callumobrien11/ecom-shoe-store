@@ -26,13 +26,18 @@ class App extends Component {
   };
 
  handleAddToOrder = (itemId) => {
-      const cart = ordersAPI.addItemToCart(itemId)
+      ordersAPI.addItemToCart(itemId)
       .then(data => this.setState({ cart: data}))
   }
 
   handleCheckout = () => {
     ordersAPI.checkout();
     this.setState({cart: null})
+  }
+
+  handleChangeQty(itemId, newQty) {
+     ordersAPI.setItemQtyInCart(itemId, newQty)
+    .then(data => this.setState({cart: data}))
   }
 
   async componentDidMount() {
@@ -91,6 +96,7 @@ class App extends Component {
                 setUserInState={this.setUserInState} 
                 orders={this.state.cart} 
                 handleCheckout={this.handleCheckout}
+                handleChangeQty={this.handleChangeQty}
                 />
               }
             />

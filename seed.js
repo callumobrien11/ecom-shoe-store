@@ -29,9 +29,6 @@ const ProductModel = require("./models/ProductSchema");
       name: "Nike Air Max 270",
       brand: brands[0],
       price: 195,
-      favorite: false,
-      size: ["5","6","7","8","9","10","11","12"],
-      color:["Black", "White"]
     },
     {
       image:
@@ -39,9 +36,6 @@ const ProductModel = require("./models/ProductSchema");
       name: "Nike Air Max 97",
       brand: brands[0],
       price: 205,
-      favorite: false,
-      size: ["5","6","7","8","9","10","11","12"],
-      color: ["Black", "Blue", "Grey"]
     },
     {
       image:
@@ -49,10 +43,6 @@ const ProductModel = require("./models/ProductSchema");
       name: "Nike Blazer Mid '77 Vintage",
       brand: brands[0],
       price: 149,
-      favorite: false,
-      size: ["5","6","7","8","9","10","11","12"],
-      color: ["Blue", "Red", "White", "Black"]
-
     },
     {
       image:
@@ -60,9 +50,6 @@ const ProductModel = require("./models/ProductSchema");
       name: "New Balance 2002R",
       brand: brands[1],
       price: 189,
-      favorite: false,
-      size: ["5","6","7","8","9","10","11","12"],
-      color: ["Black", "Gray"]
     },
     {
       image:
@@ -71,8 +58,6 @@ const ProductModel = require("./models/ProductSchema");
       brand: brands[1],
       price: 139,
       favorite: false,
-      size: ["5","6","7","8","9","10","11","12"],
-      color:["Black/White"]
     },
     {
       image:
@@ -81,8 +66,6 @@ const ProductModel = require("./models/ProductSchema");
       brand: brands[1],
       price: 99,
       favorite: false,
-      size: ["5","6","7","8","9","10","11","12"],
-      color:["Blue", "White", "Green"]
     },
     {
       image:
@@ -91,9 +74,6 @@ const ProductModel = require("./models/ProductSchema");
       name: "Adidas Ozweego",
       brand: brands[2],
       price: 129,
-      favorite: false,
-      size: ["5","6","7","8","9","10","11","12"],
-      color:["beige", "White"]
     },
     {
       image:
@@ -102,9 +82,6 @@ const ProductModel = require("./models/ProductSchema");
       name: "adidas Superstar Winter",
       brand: brands[2],
       price: 69,
-      favorite: false,
-      size: ["5","6","7","8","9","10","11","12"],
-      color:["Red", "Black", "Blue"]
     },
     {
       image:
@@ -113,9 +90,6 @@ const ProductModel = require("./models/ProductSchema");
       name: "Converse Chaussure à tige basse All Star",
       brand: brands[3],
       price: 80,
-      favorite: false,
-      size: ["5","6","7","8","9"],
-      color:["Black"]
     },
     {
       image:
@@ -124,9 +98,7 @@ const ProductModel = require("./models/ProductSchema");
       name: "Converse Chuck Taylor High",
       brand: brands[3],
       price: 129,
-      favorite: false,
-      size: ["9","10","11","12"],
-      color:["black"]
+
     },
     {
       image:
@@ -135,9 +107,6 @@ const ProductModel = require("./models/ProductSchema");
       name: "Timberland Waterproof Boots",
       brand: brands[4],
       price: 200,
-      favorite: false,
-      size: ["5","6","7","8","9","10","11","12"],
-      color:["Wheat Nubuck", "Wheat Nubuck"]
     },
     {
       image:
@@ -146,9 +115,6 @@ const ProductModel = require("./models/ProductSchema");
       name: "Crocs Classic Clog",
       brand: brands[5],
       price: 49,
-      favorite: false,
-      size: ["5","6","7","8","9","10"],
-      color: ["Green/Yellow"]
     },
     {
       image:
@@ -157,9 +123,6 @@ const ProductModel = require("./models/ProductSchema");
       name: "Crocs Echo Clogs",
       brand: brands[5],
       price: 59,
-      favorite: false,
-      size: ["5","6","7"],
-      color:["Dessert Grass/Brown"]
     },
     {
       image:
@@ -168,9 +131,6 @@ const ProductModel = require("./models/ProductSchema");
       name: "ACICS GT II",
       brand: brands[6],
       price: 169,
-      favorite: false,
-      size: ["5","6","7","8","9","10","11","12"],
-      color:["White/Blue"]
     },
     {
       image:
@@ -179,9 +139,6 @@ const ProductModel = require("./models/ProductSchema");
       name: "ASICS® Gel Quantum 180",
       brand: brands[6],
       price: 119,
-      favorite: false,
-      size: ["5","6","7","8","9","10","11","12"],
-      color:["Black/Blue"]
     },
   ]);
 
