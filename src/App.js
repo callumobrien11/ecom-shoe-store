@@ -56,6 +56,10 @@ class App extends Component {
           let brandsObject = await fetchBrandsResponse.json();
           let brands = brandsObject.map((b) => b.name);
           this.setState({ brands: brands, products: products });
+          const getCart = await ordersAPI.getCart()
+          if (getCart){
+            this.setState({ cart: getCart})
+          }
         } catch (err) {
           console.error("ERROR: ", err);
         }
@@ -97,13 +101,14 @@ class App extends Component {
                 orders={this.state.cart} 
                 handleCheckout={this.handleCheckout}
                 handleChangeQty={this.handleChangeQty}
+  
                 />
               }
             />
             <Route
               path="/orderHistory"
               element={
-                <OrderHistoryPage setUserInState={this.setUserInState} />
+                <OrderHistoryPage setUserInState={this.setUserInState} user={this.state.user} />
               }
             />
           </Routes>

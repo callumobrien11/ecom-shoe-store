@@ -30,8 +30,8 @@ export default function OrderHistoryPage(props) {
         orders={orders}
         activeOrder={activeOrder}
         handleSelectOrder={handleSelectOrder}
+        user={props.user}
       />
-      <ShoppingCart order={activeOrder} />
     </div>
   );
 }

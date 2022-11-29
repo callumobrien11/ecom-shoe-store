@@ -1,4 +1,7 @@
 import { Component } from "react";
+import { Container } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 export default class LoginForm extends Component {
   state = {
@@ -7,10 +10,14 @@ export default class LoginForm extends Component {
     error: "",
   };
 
-  handleChange = (evt) => {
+  handleChangeEmail = (evt) => {
     this.setState({
-      [evt.target.name]: evt.target.value,
-      error: "",
+      email: evt.target.value,
+    });
+  };
+  handleChangePassword = (evt) => {
+    this.setState({
+      password: evt.target.value,
     });
   };
 
@@ -41,7 +48,25 @@ export default class LoginForm extends Component {
     
   render() {
     return (
-      <div>
+      <Container>
+        <Form onSubmit={this.handleSubmit}>
+        <Form.Group className="mb-3">
+          <Form.Label>Email</Form.Label>
+          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="Email" placeholder="Email" onChange={this.handleChangeEmail} value={this.state.email}/>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Password</Form.Label>
+          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="Password" placeholder="Password" onChange={this.handleChangePassword} value={this.state.password}/>
+        </Form.Group>
+
+        <Button type="submit"  variant="danger">LOG IN</Button>
+        </Form>
+      </Container>
+    );
+  }
+}
+{/* <div>
         <div className="form-container" onSubmit={this.handleSubmit}>
           <form autoComplete="off">
             <label>Email</label>
@@ -64,7 +89,4 @@ export default class LoginForm extends Component {
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
-      </div>
-    );
-  }
-}
+      </div> */}

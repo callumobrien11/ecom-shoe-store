@@ -19,6 +19,7 @@ export default function ProductPage(props) {
         products={props.products}
       />
       <Container>
+      <section className="d-flex justify-content-center">
       <Row md={2} xs={1} lg={2}>
         <SearchBar
           searchTerm={searchTerm}
@@ -31,6 +32,7 @@ export default function ProductPage(props) {
           setActiveBrand={setActiveBrand}
         />
         </Row>
+        </section>
        
         <ProductList
           activeBrand={activeBrand}

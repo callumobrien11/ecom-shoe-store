@@ -1,4 +1,7 @@
 import { Component } from "react";
+import { Container } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 export default class SignupForm extends Component {
   state = {
@@ -9,9 +12,27 @@ export default class SignupForm extends Component {
     error: "",
   };
 
-  handleChange = (evt) => {
+  handleChangeName = (evt) => {
     this.setState({
-      [evt.target.name]: evt.target.value,
+      name: evt.target.value,
+      error: "",
+    });
+  };
+  handleChangeEmail = (evt) => {
+    this.setState({
+      email: evt.target.value,
+      error: "",
+    });
+  };
+  handleChangePassword = (evt) => {
+    this.setState({
+      password: evt.target.value,
+      error: "",
+    });
+  };
+  handleChangeConfirm = (evt) => {
+    this.setState({
+      confirm: evt.target.value,
       error: "",
     });
   };
@@ -47,48 +68,79 @@ export default class SignupForm extends Component {
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
-      <div>
-        <div className="form-container">
-          <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
-            <input
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-              required
-            />
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              required
-            />
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-              required
-            />
-            <label>Confirm</label>
-            <input
-              type="password"
-              name="confirm"
-              value={this.state.confirm}
-              onChange={this.handleChange}
-              required
-            />
-            <button type="submit" disabled={disable}>
-              SIGN UP
-            </button>
-          </form>
-        </div>
-        <p className="error-message">&nbsp;{this.state.error}</p>
-      </div>
+      <Container>
+      <Form onSubmit={this.handleSubmit}>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Name</Form.Label>
+          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="name" placeholder="Name" onChange={this.handleChangeName} value={this.state.name}/>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="email" placeholder="Enter email" value={this.state.email} onChange={this.handleChangeEmail}/>
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Password</Form.Label>
+          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="password" placeholder="Enter password" value={this.state.password} onChange={this.handleChangePassword}/>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Confirm password</Form.Label>
+          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="password" placeholder="Confirm password" value={this.state.confirm} onChange={this.handleChangeConfirm}/>
+        </Form.Group>
+
+        <Button variant="danger" type="submit">
+          Submit
+        </Button>
+      </Form>
+      </Container>
     );
   }
 }
+{/* <div>
+  <div className="form-container">
+    <form autoComplete="off" onSubmit={this.handleSubmit}>
+      <label>Name</label>
+      <input
+        type="text"
+        name="name"
+        value={this.state.name}
+        onChange={this.handleChange}
+        required
+      />
+      <label>Email</label>
+      <input
+        type="email"
+        name="email"
+        value={this.state.email}
+        onChange={this.handleChange}
+        required
+      />
+      <label>Password</label>
+      <input
+        type="password"
+        name="password"
+        value={this.state.password}
+        onChange={this.handleChange}
+        required
+      />
+      <label>Confirm</label>
+      <input
+        type="password"
+        name="confirm"
+        value={this.state.confirm}
+        onChange={this.handleChange}
+        required
+      />
+      <button type="submit" disabled={disable}>
+        SIGN UP
+      </button>
+    </form>
+  </div>
+  <p className="error-message">&nbsp;{this.state.error}</p>
+</div> */}

@@ -7,7 +7,7 @@ import "./ProductListItem.css"
 export default function ProductListItem(props) {
   return (
     <Card className="shoe-card d-flex justify-content-center border-0" style={{ width: "20rem"  }}>
-      <Link to={props.id}>
+      <Link to={props.id} style={{ textDecoration: 'none' }}>
       <Card.Img
         variant="top"
         src={props.image}

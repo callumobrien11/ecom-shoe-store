@@ -83,7 +83,7 @@ orderSchema.methods.setItemQty = async function (itemId, newQty) {
     } else if (lineItem) {
       lineItem.qty = newQty;
     } else {
-      const item = await mongoose.model('Product').findById(itemId);
+      const item = await mongoose.model('ProductSchema').findById(itemId);
       cart.lineItems.push({ item });
     }
     return cart.save();

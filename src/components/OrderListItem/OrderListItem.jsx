@@ -1,14 +1,25 @@
-export default function OrderListItem({ order, isSelected, handleSelectOrder }) {
+import { Container } from "react-bootstrap";
+import Card from 'react-bootstrap/Card';
+import formatCurrency from "../../utilities/formatCurrency";
+
+export default function OrderListItem({ order }) {
   return (
-    <div className={`OrderListItem${isSelected ? ' selected' : ''}`} onClick={() => handleSelectOrder(order)}>
-      <div>
-        <div>Order Id: <span className="smaller">{order.orderId}</span></div>
-        <div className="smaller">{new Date(order.updatedAt).toLocaleDateString()}</div>
-      </div>
-      <div className="align-rt">
-        <div>${order.orderTotal.toFixed(2)}</div>
-        <div className="smaller">{order.totalQty} Item{order.totalQty > 1 ? 's' : ''}</div>
-      </div>
-    </div>
+    
+    <Container>
+    <Card style={{marginBottom: "15px"}}>
+      <Card.Header>Order Id: {order.orderId}</Card.Header>
+      <Card.Body>
+          <p>
+            Total Paid: {formatCurrency(order.orderTotal)}
+         </p>
+         <p>
+            Qty: {order.totalQty} Item{order.totalQty > 1 ? 's' : ''}
+          </p>
+          <footer className="footer">
+            {new Date(order.updatedAt).toLocaleDateString()}
+          </footer>
+      </Card.Body>
+    </Card>
+    </Container>
   );
 }

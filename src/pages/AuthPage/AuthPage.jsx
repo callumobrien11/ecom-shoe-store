@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { Container } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import SignupForm from "../../components/SignupForm/SignupForm";
 
@@ -10,13 +12,13 @@ export default class AuthPage extends Component {
   render() {
     return (
       <main className="AuthPage">
-        <div>
+        <Container>
           <h3
             onClick={() => this.setState({ showLogin: !this.state.showLogin })}
           >
-            {this.state.showLogin ? "SIGN UP" : "LOG IN"}
+            <Button variant="outline-dark" style={{outline:"none", boxShadow:"none", marginTop:"30px"}}>{this.state.showLogin ? "SIGN UP" : "LOG IN"}</Button>
           </h3>
-        </div>
+        </Container>
         {/* Another ternary operator! */}
         {/* If showLogin is true, show the login form. If false, show the signup form */}
         {this.state.showLogin ? (

@@ -2,6 +2,7 @@ import { Container, Stack, Card, Icon } from "react-bootstrap";
 import formatCurrency from "../../utilities/formatCurrency";
 
 export default function LineItems(props) {
+  console.log('props', props)
   return (
     <Container>
       <Card className="mb-3">
@@ -16,33 +17,9 @@ export default function LineItems(props) {
                   style={{ width: "100px" }}
                 />
               </div>
-              <div className="ms-3">
+              <div style={{paddingLeft:"40px"}}>
                 {props.name}
-                <p className="small mb-0">256GB, Navy Blue</p>
               </div>
-            </div>
-            <div className="qty" style={{ justifyContent: props.isPaid && "center" }}>
-              {!props.isPaid && (
-                <button
-                  className="btn-xs"
-                  onClick={() =>
-                    props.handleChangeQty(props._id, props.qty - 1)
-                  }
-                >
-                  −
-                </button>
-              )}
-              <span>{props.qty}</span>
-              {!props.isPaid && (
-                <button
-                  className="btn-xs"
-                  onClick={() =>
-                    props.handleChangeQty(props._id, props.qty + 1)
-                  }
-                >
-                  +
-                </button>
-              )}
             </div>
             <div className="d-flex flex-row align-items-center">
               <div style={{ width: "50px" }}>{props.qty}</div>
