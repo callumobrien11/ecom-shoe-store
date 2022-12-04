@@ -13,6 +13,8 @@ export default function ProductInfoPage(props) {
   const getId = useParams().id;
   console.log(products)
 
+  document.title = "Product Info | Shoe Expo"
+
   useEffect(() => {
     (async function getProduct() {
       try {
@@ -49,7 +51,7 @@ export default function ProductInfoPage(props) {
                 <Card.Text>{formatCurrency(product.price)}</Card.Text>
                 <Form.Group>
                   <Link to="/ShoppingCart">
-                  <Button onClick={() => props.handleAddToOrder(getId)} className="mt-4 mb-4 bg-danger border-0">Add to Cart</Button>
+                  <Button style={{outline:"none", boxShadow:"none"}} onClick={() => props.handleAddToOrder(getId)} className="mt-4 mb-4 bg-danger border-0">Add to Cart</Button>
                   </Link>
                 </Form.Group>
               </Card.Body>

@@ -8,6 +8,8 @@ export default function OrderHistoryPage(props) {
   const [orders, setOrders] = useState([]);
   const [activeOrder, setActiveOrder] = useState(null);
 
+  document.title = "Previous Orders | Shoe Expo"
+
   useEffect(function () {
     // Load previous orders (paid)
     async function fetchOrderHistory() {

@@ -9,6 +9,8 @@ import { Container, Button } from "react-bootstrap";
 export default function ShoppingCart(props) {
   const order = props.orders
 
+  document.title = "Cart Page | Shoe Expo"
+
   function getOrders() {
     const lineItems = order.lineItems?.map(lineItem => 
       <LineItems 
@@ -18,6 +20,7 @@ export default function ShoppingCart(props) {
         handleChangeQty={props.handleChangeQty}
         qty={lineItem.qty}
         isPaid={lineItem.isPaid}
+        lineItem={lineItem}
       />
       )
       return lineItems
@@ -32,27 +35,26 @@ export default function ShoppingCart(props) {
 
         { props.orders ?
           <>
-            {getOrders()}
+          <div>{getOrders()}</div>
             <section className="mt-4 d-flex justify-content-center">
-                <span>TOTAL&nbsp;&nbsp;</span>
-         
+              <span>TOTAL&nbsp;&nbsp;</span>
               Qty {order.totalQty}&nbsp;&nbsp;
               {formatCurrency(order.orderTotal)}
             </section>
             <section className="d-flex justify-content-center">
             <Link to="/">
             <Button
-                  style={{marginRight:"10px"}}
+                  style={{marginRight:"10px",outline:"none", boxShadow:"none"}}
                   className="mt-4 mb-4 bg-dark border-0"
-                  disabled={!getOrders().length}
-                >Keep Shopping</Button>
+                >Shop</Button>
                 </Link>
             <Link to="/orderHistory">
                 <Button
+                  style={{outline:"none", boxShadow:"none"}}
                   className="mt-4 mb-4 bg-danger border-0"
                   onClick={props.handleCheckout}
                   disabled={!getOrders().length}
-                >CHECKOUT</Button>
+                >Checkout</Button>
                 </Link>
             </section>
           </>
@@ -61,7 +63,7 @@ export default function ShoppingCart(props) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            height: '100vh',
+            height: '80vh',
             fontWeight: 'bold'
           }} >No Shoes Selected</div>
         }

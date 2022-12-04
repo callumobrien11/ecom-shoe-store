@@ -35,11 +35,13 @@ export default class Header extends Component {
           <Nav>
             <Link to="/ShoppingCart">
               <Button
+            
                 style={{
                   width: "3rem",
                   height: "3rem",
                   position: "relative",
-                }}
+                  outline:"none", 
+                  boxShadow:"none" }}
                 variant="outline-danger"
                 className="rounded-circle"
               >

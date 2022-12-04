@@ -2,13 +2,16 @@ import Header from "../../components/Header/Header";
 import ProductList from "../../components/ProductList/ProductList";
 import BrandList from "../../components/BrandsList/BrandsList";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 
 export default function ProductPage(props) {
   const [activeBrand, setActiveBrand] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [favorite, setFavorite] = useState(null);
+
+  document.title = "All Shoes | Shoe Expo"
+  
 
   return (
     <div>

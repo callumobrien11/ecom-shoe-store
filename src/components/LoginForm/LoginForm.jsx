@@ -10,6 +10,10 @@ export default class LoginForm extends Component {
     error: "",
   };
 
+  componentDidMount = () => {
+    document.title = "Login | Shoe Expo"
+  }
+
   handleChangeEmail = (evt) => {
     this.setState({
       email: evt.target.value,
@@ -52,15 +56,15 @@ export default class LoginForm extends Component {
         <Form onSubmit={this.handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Email</Form.Label>
-          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="Email" placeholder="Email" onChange={this.handleChangeEmail} value={this.state.email}/>
+          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="Email" placeholder="Email" onChange={this.handleChangeEmail} value={this.state.email} required />
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label>Password</Form.Label>
-          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="Password" placeholder="Password" onChange={this.handleChangePassword} value={this.state.password}/>
+          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="Password" placeholder="Password" onChange={this.handleChangePassword} value={this.state.password} required />
         </Form.Group>
 
-        <Button type="submit"  variant="danger">LOG IN</Button>
+        <Button style={{outline:"none", boxShadow:"none"}} type="submit"  variant="danger">LOG IN</Button>
         </Form>
       </Container>
     );

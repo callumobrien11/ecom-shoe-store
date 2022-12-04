@@ -19,7 +19,7 @@ export default function ProductListItem(props) {
         <Card.Text className="shoe-card-text" style={{color:"black"}}>{formatCurrency(props.price)}</Card.Text>
         <Card.Text className="d-flex justify-content-center mb-4" >
           <Link to={props.id}>
-            <Button variant="outline-danger" className="rounded">more</Button>
+            <Button style={{outline:"none", boxShadow:"none"}} variant="outline-danger" className="rounded">more</Button>
           </Link>
         </Card.Text>
       </Card.Body>

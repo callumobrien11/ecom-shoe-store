@@ -35,7 +35,7 @@ class App extends Component {
     this.setState({cart: null})
   }
 
-  handleChangeQty(itemId, newQty) {
+  handleChangeQty = (itemId, newQty) => {
      ordersAPI.setItemQtyInCart(itemId, newQty)
     .then(data => this.setState({cart: data}))
   }

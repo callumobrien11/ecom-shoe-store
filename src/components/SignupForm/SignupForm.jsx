@@ -37,6 +37,10 @@ export default class SignupForm extends Component {
     });
   };
 
+  componentDidMount = () => {
+    document.title = "Sign Up | Shoe Expo"
+  }
+
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
@@ -73,12 +77,12 @@ export default class SignupForm extends Component {
 
         <Form.Group className="mb-3">
           <Form.Label>Name</Form.Label>
-          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="name" placeholder="Name" onChange={this.handleChangeName} value={this.state.name}/>
+          <Form.Control name="name" style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="name" placeholder="Name" onChange={this.handleChangeName} value={this.state.name} required/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="email" placeholder="Enter email" value={this.state.email} onChange={this.handleChangeEmail}/>
+          <Form.Control name="email" style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="email" placeholder="Enter email" value={this.state.email} onChange={this.handleChangeEmail}required/>
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
@@ -86,16 +90,16 @@ export default class SignupForm extends Component {
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Password</Form.Label>
-          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="password" placeholder="Enter password" value={this.state.password} onChange={this.handleChangePassword}/>
+          <Form.Control name="password" style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="password" placeholder="Enter password" value={this.state.password} onChange={this.handleChangePassword} required/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Confirm password</Form.Label>
-          <Form.Control style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="password" placeholder="Confirm password" value={this.state.confirm} onChange={this.handleChangeConfirm}/>
+          <Form.Control name="confirm" style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="password" placeholder="Confirm password" value={this.state.confirm} onChange={this.handleChangeConfirm} required/>
         </Form.Group>
 
-        <Button variant="danger" type="submit">
-          Submit
+        <Button style={{outline:"none", boxShadow:"none"}} variant="danger" type="submit" disabled={disable}>
+          SIGN IN
         </Button>
       </Form>
       </Container>
