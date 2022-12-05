@@ -22,8 +22,8 @@ export default function ProductPage(props) {
         products={props.products}
       />
       <Container>
-      <section className="d-flex justify-content-center">
-      <Row md={2} xs={1} lg={2}>
+      <section >
+      <Row md={1} xs={1} lg={1}>
         <SearchBar
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}

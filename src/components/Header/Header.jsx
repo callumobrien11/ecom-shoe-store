@@ -24,7 +24,7 @@ export default class Header extends Component {
     return (
       <Navbar sticky="top" className="shadow-lg mb-3" style={{backgroundColor:"#f4f4f4"}}>
         <Container className="container">
-          <Nav className="me-auto">
+          <Nav className="d-flex justify-content-center">
             <Nav.Link to="/" as={NavLink}>
               Home
             </Nav.Link>

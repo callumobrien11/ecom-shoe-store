@@ -5,7 +5,7 @@ export default function ProductList(props) {
     let products = props.productList.filter(item => item.brand.name === props.activeBrand)
     
     return (
-        <Row md={2} xs={1} lg={3} className="g-3">
+        <Row md={2} xs={1} lg={4} className="g-3 d-flex justify-content-center">
             {props.activeBrand ? products.map(p => 
                <ProductListItem setFavorite={props.setFavorite} favorite={props.favorite} name={p.name} image={p.image} price={p.price} id={p._id} />)
                 : 
