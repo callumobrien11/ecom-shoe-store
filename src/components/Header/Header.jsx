@@ -1,14 +1,6 @@
-import React, { useState, useEffect, Component } from "react";
-import ShoppingCart from "../ShoppingCart/ShoppingCart"
+import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
-import {
-  Navbar,
-  Container,
-  FormControl,
-  NavDropdown,
-  Nav,
-  Button,
-} from "react-bootstrap";
+import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import "./Header.css";
 
 export default class Header extends Component {
@@ -22,7 +14,11 @@ export default class Header extends Component {
   }
   render() {
     return (
-      <Navbar sticky="top" className="shadow-lg mb-3" style={{backgroundColor:"#f4f4f4"}}>
+      <Navbar
+        sticky="top"
+        className="shadow-lg mb-3"
+        style={{ backgroundColor: "#f4f4f4" }}
+      >
         <Container className="container">
           <Nav className="d-flex justify-content-center">
             <Nav.Link to="/" as={NavLink}>
@@ -35,13 +31,13 @@ export default class Header extends Component {
           <Nav>
             <Link to="/ShoppingCart">
               <Button
-            
                 style={{
                   width: "3rem",
                   height: "3rem",
                   position: "relative",
-                  outline:"none", 
-                  boxShadow:"none" }}
+                  outline: "none",
+                  boxShadow: "none",
+                }}
                 variant="outline-danger"
                 className="rounded-circle"
               >
@@ -52,10 +48,10 @@ export default class Header extends Component {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather feather-shopping-cart"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-shopping-cart"
                 >
                   <circle cx="9" cy="21" r="1"></circle>
                   <circle cx="20" cy="21" r="1"></circle>
@@ -65,7 +61,7 @@ export default class Header extends Component {
             </Link>
             <Button
               onClick={this.handleLogout}
-              style={{ background: "#c82333", border: "none", marginLeft: 30}}
+              style={{ background: "#c82333", border: "none", marginLeft: 30 }}
             >
               Logout
             </Button>

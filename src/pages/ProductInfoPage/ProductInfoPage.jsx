@@ -11,9 +11,9 @@ export default function ProductInfoPage(props) {
   const [products, setProduct] = useState({ product: {} });
   const product = products.product;
   const getId = useParams().id;
-  console.log(products)
+  console.log(products);
 
-  document.title = "Product Info | Shoe Expo"
+  document.title = "Product Info | Shoe Expo";
 
   useEffect(() => {
     (async function getProduct() {
@@ -40,26 +40,39 @@ export default function ProductInfoPage(props) {
           <Col className="mt-4 d-flex justify-content-center">
             <img
               src={product.image}
-              style={{ width: 550, height: 400, objectFit: "contain", paddingBottom:40}}
+              style={{
+                width: 550,
+                height: 400,
+                objectFit: "contain",
+                paddingBottom: 40,
+              }}
             />
           </Col>
           <Col>
             <Card>
-              {/* <Container> */}
-              <Card.Title className="mt-4 d-flex justify-content-center" style={{fontSize: "30px"}}>{product.name}</Card.Title>
+              <Card.Title
+                className="mt-4 d-flex justify-content-center"
+                style={{ fontSize: "30px" }}
+              >
+                {product.name}
+              </Card.Title>
               <Card.Body>
                 <Card.Text>{formatCurrency(product.price)}</Card.Text>
                 <Form.Group>
                   <Link to="/ShoppingCart">
-                  <Button style={{outline:"none", boxShadow:"none"}} onClick={() => props.handleAddToOrder(getId)} className="mt-4 mb-4 bg-danger border-0">Add to Cart</Button>
+                    <Button
+                      style={{ outline: "none", boxShadow: "none" }}
+                      onClick={() => props.handleAddToOrder(getId)}
+                      className="mt-4 mb-4 bg-danger border-0"
+                    >
+                      Add to Cart
+                    </Button>
                   </Link>
                 </Form.Group>
               </Card.Body>
-              {/* </Container> */}
             </Card>
           </Col>
         </Row>
-        {/* {product.favorite ? <AiOutlineHeart onClick={handleFavorite}/> : <AiFillHeart onClick={handleFavorite}/>} */}
       </Container>
     </div>
   );

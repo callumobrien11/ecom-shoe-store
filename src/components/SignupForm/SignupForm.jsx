@@ -38,8 +38,8 @@ export default class SignupForm extends Component {
   };
 
   componentDidMount = () => {
-    document.title = "Sign Up | Shoe Expo"
-  }
+    document.title = "Sign Up | Shoe Expo";
+  };
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -73,78 +73,88 @@ export default class SignupForm extends Component {
     const disable = this.state.password !== this.state.confirm;
     return (
       <Container>
-      <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              name="name"
+              style={{
+                outline: "none",
+                boxShadow: "none",
+                borderColor: "black",
+              }}
+              type="name"
+              placeholder="Name"
+              onChange={this.handleChangeName}
+              value={this.state.name}
+              required
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Name</Form.Label>
-          <Form.Control name="name" style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="name" placeholder="Name" onChange={this.handleChangeName} value={this.state.name} required/>
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              name="email"
+              style={{
+                outline: "none",
+                boxShadow: "none",
+                borderColor: "black",
+              }}
+              type="email"
+              placeholder="Enter email"
+              value={this.state.email}
+              onChange={this.handleChangeEmail}
+              required
+            />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control name="email" style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="email" placeholder="Enter email" value={this.state.email} onChange={this.handleChangeEmail}required/>
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              name="password"
+              style={{
+                outline: "none",
+                boxShadow: "none",
+                borderColor: "black",
+              }}
+              type="password"
+              placeholder="Enter password"
+              value={this.state.password}
+              onChange={this.handleChangePassword}
+              required
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Password</Form.Label>
-          <Form.Control name="password" style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="password" placeholder="Enter password" value={this.state.password} onChange={this.handleChangePassword} required/>
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Confirm password</Form.Label>
+            <Form.Control
+              name="confirm"
+              style={{
+                outline: "none",
+                boxShadow: "none",
+                borderColor: "black",
+              }}
+              type="password"
+              placeholder="Confirm password"
+              value={this.state.confirm}
+              onChange={this.handleChangeConfirm}
+              required
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Confirm password</Form.Label>
-          <Form.Control name="confirm" style={{outline:"none", boxShadow:"none", borderColor:"black"}} type="password" placeholder="Confirm password" value={this.state.confirm} onChange={this.handleChangeConfirm} required/>
-        </Form.Group>
-
-        <Button style={{outline:"none", boxShadow:"none"}} variant="danger" type="submit" disabled={disable}>
-          SIGN IN
-        </Button>
-      </Form>
+          <Button
+            style={{ outline: "none", boxShadow: "none" }}
+            variant="danger"
+            type="submit"
+            disabled={disable}
+          >
+            SIGN IN
+          </Button>
+        </Form>
       </Container>
     );
   }
 }
-{/* <div>
-  <div className="form-container">
-    <form autoComplete="off" onSubmit={this.handleSubmit}>
-      <label>Name</label>
-      <input
-        type="text"
-        name="name"
-        value={this.state.name}
-        onChange={this.handleChange}
-        required
-      />
-      <label>Email</label>
-      <input
-        type="email"
-        name="email"
-        value={this.state.email}
-        onChange={this.handleChange}
-        required
-      />
-      <label>Password</label>
-      <input
-        type="password"
-        name="password"
-        value={this.state.password}
-        onChange={this.handleChange}
-        required
-      />
-      <label>Confirm</label>
-      <input
-        type="password"
-        name="confirm"
-        value={this.state.confirm}
-        onChange={this.handleChange}
-        required
-      />
-      <button type="submit" disabled={disable}>
-        SIGN UP
-      </button>
-    </form>
-  </div>
-  <p className="error-message">&nbsp;{this.state.error}</p>
-</div> */}

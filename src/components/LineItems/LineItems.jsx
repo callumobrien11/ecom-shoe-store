@@ -1,4 +1,4 @@
-import { Container, Stack, Card, Icon, Button } from "react-bootstrap";
+import { Container, Card, Button } from "react-bootstrap";
 import formatCurrency from "../../utilities/formatCurrency";
 import "./LineItems.css";
 

@@ -5,7 +5,6 @@ module.exports = {
     addToCart,
     setItemQtyInCart,
     checkout,
-    history
   };
 
   async function cart(req, res) {
@@ -33,10 +32,4 @@ module.exports = {
     await cart.save(); 
     res.json(cart);
   }
-  
-  async function history(req, res) {
-    // Sort most recent orders first
-    const orders = await Order.find({ user: req.user._id, isPaid: true })
-      .sort('-updatedAt').exec();
-    res.json(orders);
-  }
+

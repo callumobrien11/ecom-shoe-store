@@ -10,7 +10,7 @@ export default function ProductList(props) {
                <ProductListItem setFavorite={props.setFavorite} favorite={props.favorite} name={p.name} image={p.image} price={p.price} id={p._id} />)
                 : 
                 props.productList.filter((val) => {
-                    if (props.searchTerm == "") {
+                    if (props.searchTerm === "") {
                         return val
                     } else if (val.name.toLowerCase().includes(props.searchTerm.toLowerCase())) {
                         console.log("val.name", val.name)

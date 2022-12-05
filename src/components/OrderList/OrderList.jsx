@@ -1,4 +1,3 @@
-import userEvent from '@testing-library/user-event';
 import { Container } from 'react-bootstrap';
 import OrderListItem from '../OrderListItem/OrderListItem';
 

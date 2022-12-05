@@ -16,10 +16,14 @@ export default class AuthPage extends Component {
           <h3
             onClick={() => this.setState({ showLogin: !this.state.showLogin })}
           >
-            <Button variant="outline-dark" style={{outline:"none", boxShadow:"none", marginTop:"30px"}}>{this.state.showLogin ? "SIGN UP" : "LOG IN"}</Button>
+            <Button
+              variant="outline-dark"
+              style={{ outline: "none", boxShadow: "none", marginTop: "30px" }}
+            >
+              {this.state.showLogin ? "SIGN UP" : "LOG IN"}
+            </Button>
           </h3>
         </Container>
-        {/* Another ternary operator! */}
         {/* If showLogin is true, show the login form. If false, show the signup form */}
         {this.state.showLogin ? (
           <LoginForm setUserInState={this.props.setUserInState} />

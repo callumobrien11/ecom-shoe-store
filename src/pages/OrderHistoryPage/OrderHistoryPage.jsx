@@ -1,5 +1,4 @@
 import Header from "../../components/Header/Header";
-import ShoppingCart from "../../components/ShoppingCart/ShoppingCart";
 import { useState, useEffect } from "react";
 import OrderList from "../../components/OrderList/OrderList";
 import * as ordersAPI from "../../utilities/orders-api"
